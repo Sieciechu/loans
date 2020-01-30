@@ -24,3 +24,30 @@ func TestFun2(t *testing.T) {
 		t.Errorf("Expected %s, but got %s", inDate, outDate)
 	}
 }
+
+func TestWhenPersonLoansItemItHasItOnItsLoanList(t *testing.T) {
+	// given
+	john := newPerson(1, "John")
+
+	// when
+	john.loanTo(item{"dolars", 20.0}, person{name: "Adam"}, date("2020-01-16"))
+
+	// then
+	if loansCount := john.getLoans().Len(); 1 != loansCount {
+		t.Errorf("Expected 1 loan, but got %d", loansCount)
+		return
+	}
+
+	loan := john.getLoans().Front().Value.(loan)
+	expectedItem := item{"dolars", 20.0}
+	if expectedItem != loan.item {
+		t.Errorf("Expected item %v, got %v", expectedItem, loan.item)
+	}
+	if john != loan.loaner {
+		t.Errorf("Expected loaner %v, got %v", john, loan.loaner)
+	}
+
+	if expectedBorrower := (person{name: "Adam"}); expectedBorrower != loan.borrower {
+		t.Errorf("Expected borrower %v, got %v", expectedBorrower, loan.borrower)
+	}
+}
