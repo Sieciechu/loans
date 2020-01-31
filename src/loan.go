@@ -5,11 +5,6 @@ import (
 	"time"
 )
 
-// Fun - return 1
-func Fun() int {
-	return 1
-}
-
 type person struct {
 	id    int
 	name  string
