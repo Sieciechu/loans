@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+// Person - represents person.
+// loans field contains both: loans and borrowings. In Polish we have one word for it (pożyczki), in English I couldn't find
 type Person struct {
 	id    int
 	name  string
