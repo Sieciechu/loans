@@ -86,16 +86,43 @@ func TestWhenAddPersonWhichIsInRepoThenItIsImpossibleToAddIt(t *testing.T) {
 
 func TestWhenStoreAndPersonExistsThenPersonIsUpdated(t *testing.T) {
 	// given
+	repo := NewInMemoryPersonRepository()
+	repo.personList["Adam"] = domain.NewPerson(1, "Adam")
+	var personRepo domain.PersonRepository = &repo
+
 	// when
+	newId := 2
+	personRepo.StorePerson(domain.NewPerson(newId, "Adam"))
+
 	// then
-	t.Fail()
+	if 1 != personRepo.Count() {
+		t.Errorf("Expected 1 people, got %d", personRepo.Count())
+	}
+
+	person, _ := personRepo.GetPersonByName("Adam")
+	if person.GetId() != newId {
+		t.Errorf("Expected new id: %d, got %d", newId, person.GetId())
+	}
 }
 
 func TestWhenStoreNewPersonThenPersonIsStored(t *testing.T) {
 	// given
+	repo := NewInMemoryPersonRepository()
+	repo.personList["Adam"] = domain.NewPerson(1, "Adam")
+	var personRepo domain.PersonRepository = &repo
+
 	// when
+	john := domain.NewPerson(2, "John")
+	personRepo.StorePerson(john)
+
 	// then
-	t.Fail()
+	if 2 != personRepo.Count() {
+		t.Errorf("Expected 2 people, got %d", personRepo.Count())
+	}
+	person, _ := personRepo.GetPersonByName("John")
+	if person != john {
+		t.Errorf("Expected person %v, got %v", john, person)
+	}
 }
 
 func TestWhenStoreDidNotSucceedThenReasonForFailureIsKnown(t *testing.T) {
