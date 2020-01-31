@@ -1,0 +1,22 @@
+name: CI
+
+on: [push]
+
+jobs:
+
+# ----------------------------------------------
+  unit-tests:
+    runs-on: ubuntu-latest
+    container: golang:1.13
+    steps:
+
+    - name: Git checkout
+    # Fetches and pull the reporisory with correct branch
+    # link: https://github.com/actions/checkout
+      uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Unit tests
+      run: go test ./...
+
