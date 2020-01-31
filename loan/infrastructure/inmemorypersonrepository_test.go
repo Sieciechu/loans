@@ -124,10 +124,3 @@ func TestWhenStoreNewPersonThenPersonIsStored(t *testing.T) {
 		t.Errorf("Expected person %v, got %v", john, person)
 	}
 }
-
-func TestWhenStoreDidNotSucceedThenReasonForFailureIsKnown(t *testing.T) {
-	// given
-	// when
-	// then
-	t.Fail()
-}
