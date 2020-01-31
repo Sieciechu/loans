@@ -11,7 +11,18 @@ type Person struct {
 	loans *list.List
 }
 
-func newPerson(id int, name string) Person {
+// GetId - returns person id
+func (p *Person) GetId() int {
+	return p.id
+}
+
+// GetName - returns person name
+func (p *Person) GetName() string {
+	return p.name
+}
+
+// NewPerson - factory function
+func NewPerson(id int, name string) Person {
 	return Person{id, name, list.New()}
 }
 

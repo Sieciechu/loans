@@ -10,7 +10,7 @@ var date = isodate.NewDate
 
 func TestWhenPersonLoansItemItHasItOnItsLoanList(t *testing.T) {
 	// given
-	john := newPerson(1, "John")
+	john := NewPerson(1, "John")
 
 	// when
 	john.loanTo(item{"dolars", 20.0}, Person{name: "Adam"}, date("2020-01-16"))
@@ -37,7 +37,7 @@ func TestWhenPersonLoansItemItHasItOnItsLoanList(t *testing.T) {
 
 func TestWhenPersonBorrowsItemItHasItOnItsLoanList(t *testing.T) {
 	// given
-	john := newPerson(1, "John")
+	john := NewPerson(1, "John")
 
 	// when
 	john.borrow(item{"dolars", 20.0}, Person{name: "Adam"}, date("2020-01-16"))
