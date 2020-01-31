@@ -84,7 +84,14 @@ func TestWhenAddPersonWhichIsInRepoThenItIsImpossibleToAddIt(t *testing.T) {
 	}
 }
 
-func TestWhenStoreThenPersonIsStored(t *testing.T) {
+func TestWhenStoreAndPersonExistsThenPersonIsUpdated(t *testing.T) {
+	// given
+	// when
+	// then
+	t.Fail()
+}
+
+func TestWhenStoreNewPersonThenPersonIsStored(t *testing.T) {
 	// given
 	// when
 	// then
