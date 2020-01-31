@@ -1,4 +1,4 @@
-package loans
+package domain
 
 import (
 	"testing"
@@ -13,7 +13,7 @@ func TestWhenPersonLoansItemItHasItOnItsLoanList(t *testing.T) {
 	john := newPerson(1, "John")
 
 	// when
-	john.loanTo(item{"dolars", 20.0}, person{name: "Adam"}, date("2020-01-16"))
+	john.loanTo(item{"dolars", 20.0}, Person{name: "Adam"}, date("2020-01-16"))
 
 	// then
 	if loansCount := john.getLoans().Len(); 1 != loansCount {
@@ -30,7 +30,7 @@ func TestWhenPersonLoansItemItHasItOnItsLoanList(t *testing.T) {
 		t.Errorf("Expected loaner %v, got %v", john, loan.loaner)
 	}
 
-	if expectedBorrower := (person{name: "Adam"}); expectedBorrower != loan.borrower {
+	if expectedBorrower := (Person{name: "Adam"}); expectedBorrower != loan.borrower {
 		t.Errorf("Expected borrower %v, got %v", expectedBorrower, loan.borrower)
 	}
 }
@@ -40,7 +40,7 @@ func TestWhenPersonBorrowsItemItHasItOnItsLoanList(t *testing.T) {
 	john := newPerson(1, "John")
 
 	// when
-	john.borrow(item{"dolars", 20.0}, person{name: "Adam"}, date("2020-01-16"))
+	john.borrow(item{"dolars", 20.0}, Person{name: "Adam"}, date("2020-01-16"))
 
 	// then
 	if loansCount := john.getLoans().Len(); 1 != loansCount {
@@ -57,7 +57,7 @@ func TestWhenPersonBorrowsItemItHasItOnItsLoanList(t *testing.T) {
 		t.Errorf("Expected borrower %v, got %v", john, loan.borrower)
 	}
 
-	if expectedLoaner := (person{name: "Adam"}); expectedLoaner != loan.loaner {
+	if expectedLoaner := (Person{name: "Adam"}); expectedLoaner != loan.loaner {
 		t.Errorf("Expected loaner %v, got %v", expectedLoaner, loan.loaner)
 	}
 }

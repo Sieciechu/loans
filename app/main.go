@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/Sieciechu/isodate"
-	"github.com/Sieciechu/loans"
+	"time"
+	"github.com/Sieciechu/loans/loan/domain"
 )
 
 func main() {
-	fmt.Println(isodate.NewDate("2018-02-12"))
-	fmt.Println(loans.Fun())
+	fmt.Println(time.Now())
+	fmt.Println(domain.Fun())
 }
