@@ -42,7 +42,6 @@ func TestRegister(t *testing.T) {
 	assert.Equal(t, "John", container.Get("returnAlwaysSameNameService"))
 }
 
-
 func TestGetSingletonService(t *testing.T) {
 	// given
 	c := NewInMemoryContainer()

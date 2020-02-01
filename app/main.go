@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"time"
 	"github.com/Sieciechu/loans/loan/domain"
+	"time"
 )
 
 func main() {
