@@ -2,6 +2,9 @@ name: CI
 
 on: [push]
 
+env:
+  CODECOV_TOKEN: ${{ secrets.CODECOV_IO }}
+
 jobs:
 
 # ----------------------------------------------
@@ -18,5 +21,8 @@ jobs:
         fetch-depth: 1
 
     - name: Unit tests
-      run: go test ./...
+      run: go test -race -coverprofile=coverage.txt -covermode=atomic ./...
+
+    - name: Code coverage report
+      run: curl -s https://codecov.io/bash | bash
 
