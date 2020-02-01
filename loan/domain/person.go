@@ -37,9 +37,9 @@ func (p *Person) loanTo(i item, borrower Person, t time.Time) {
 	})
 }
 
-func (p *Person) borrow(i item, borrower Person, t time.Time) {
+func (p *Person) borrow(i item, from Person, t time.Time) {
 	p.loans.PushFront(loan{
-		loaner:   borrower,
+		loaner:   from,
 		borrower: *p,
 		item:     i,
 		date:     t,
