@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/Sieciechu/loans/loan/domain"
-	"gotest.tools/assert"
+	"github.com/Sieciechu/gotest.tools/assert"
 )
 
 func TestGetPersonByNameReturnsPerson(t *testing.T) {

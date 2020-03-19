@@ -5,7 +5,7 @@ import (
 
 	"github.com/Sieciechu/loans/loan/application"
 	"github.com/Sieciechu/loans/loan/domain"
-	"gotest.tools/assert"
+	"github.com/Sieciechu/gotest.tools/assert"
 )
 
 func TestGet(t *testing.T) {
